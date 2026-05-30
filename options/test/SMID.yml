@@ -79,9 +79,8 @@ network_g:
 
 # path
 path:
-  pretrain_network_g: ~
+  pretrain_network_g: /home/elvis/project/MambaLLIE/weights/SMID.pth
   strict_load_g: True
-  resume_state: ~
 
 # validation settings
 val:
