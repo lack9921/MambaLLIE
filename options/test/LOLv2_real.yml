@@ -3,17 +3,50 @@ name: test_LOLv2_real
 model_type: MambaLLIE
 scale: 1
 num_gpu: 1
+gpu_ids: [0]
 manual_seed: 10
 
 datasets:
-  test:
-    task: LLIE
-    name: LOL
+  test_1:
+    name: Blur
     type: PairedImageDataset
-    dataroot_gt: data/LOLv2/Real_captured/Test/Normal/
-    dataroot_lq: data/LOLv2/Real_captured/Test/Low/
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Blur/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Blur/LQ
     io_backend:
       type: disk
+    scale: 1
+  test_2:
+    name: Haze
+    type: PairedImageDataset
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Haze/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Haze/LQ
+    io_backend:
+      type: disk
+    scale: 1
+  test_3:
+    name: Lowlight
+    type: PairedImageDataset
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Lowlight/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Lowlight/LQ
+    io_backend:
+      type: disk
+    scale: 1
+  test_4:
+    name: Rain
+    type: PairedImageDataset
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Rain/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Rain/LQ
+    io_backend:
+      type: disk
+    scale: 1
+  test_5:
+    name: Snow
+    type: PairedImageDataset
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Snow/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Snow/LQ
+    io_backend:
+      type: disk
+    scale: 1
 
 # network structures
 network_g:
@@ -28,7 +61,7 @@ network_g:
 
 # path
 path:
-  pretrain_network_g: /weights/LOLv2_real.pth
+  pretrain_network_g: /home/elvis/project/MambaLLIE/weights/LOLv2_real.pth
   strict_load_g: True
 
 # validation settings
@@ -45,5 +78,8 @@ val:
       type: calculate_ssim
       crop_border: 0
       test_y_channel: false
-
+    lpips:
+      type: calculate_lpips
+      crop_border: 0
+      test_y_channel: true
 
