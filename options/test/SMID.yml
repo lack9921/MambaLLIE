@@ -7,11 +7,59 @@ manual_seed: 10
 
 # dataset and data loader settings
 datasets:
-  val:
-    name: SMID
-    type: Dataset_SMIDImage
-    dataroot_gt: /opt/data/private/Dataset/SMID/SMID_Long_np/
-    dataroot_lq: /opt/data/private/Dataset/SMID/SMID_LQ_np/
+  test_1:
+    name: Blur
+    type: PairedImageDataset
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Blur/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Blur/LQ
+    cache_data: true
+    N_frames: 5
+    padding: new_info
+    train_size: [960, 512]
+    io_backend:
+      type: disk
+  
+  test_2:
+    name: Haze
+    type: PairedImageDataset
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Haze/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Haze/LQ
+    cache_data: true
+    N_frames: 5
+    padding: new_info
+    train_size: [960, 512]
+    io_backend:
+      type: disk
+
+  test_3:
+    name: Lowlight
+    type: PairedImageDataset
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Lowlight/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Lowlight/LQ
+    cache_data: true
+    N_frames: 5
+    padding: new_info
+    train_size: [960, 512]
+    io_backend:
+      type: disk
+
+  test_4:
+    name: Rain
+    type: PairedImageDataset
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Rain/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Rain/LQ
+    cache_data: true
+    N_frames: 5
+    padding: new_info
+    train_size: [960, 512]
+    io_backend:
+      type: disk
+  
+  test_5:
+    name: Snow
+    type: PairedImageDataset
+    dataroot_gt: /home/elvis/project/dataset/dataset/LoViF_val/Snow/GT
+    dataroot_lq: /home/elvis/project/dataset/dataset/LoViF_val/Snow/LQ
     cache_data: true
     N_frames: 5
     padding: new_info

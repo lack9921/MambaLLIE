@@ -1,5 +1,5 @@
 # general settings
-name: test_LOLv2_real
+name: test_SMID
 model_type: MambaLLIE
 scale: 1
 num_gpu: 1
@@ -61,7 +61,7 @@ network_g:
 
 # path
 path:
-  pretrain_network_g: /home/elvis/project/MambaLLIE/weights/LOLv2_real.pth
+  pretrain_network_g: /home/elvis/project/MambaLLIE/weights/SMID.pth
   strict_load_g: True
 
 # validation settings
@@ -73,13 +73,12 @@ val:
     psnr: # metric name, can be arbitrary
       type: calculate_psnr
       crop_border: 0
-      test_y_channel: false
+      test_y_channel: true
     ssim:
       type: calculate_ssim
       crop_border: 0
-      test_y_channel: false
+      test_y_channel: true
     lpips:
       type: calculate_lpips
-      crop_border: 0
-      test_y_channel: true
+      # test_y_channel: true
 
